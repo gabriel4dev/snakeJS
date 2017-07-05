@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Deep into JS - SnakeJS</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>SNAKE JS - by gabo</h1>
+                <h3 id="puntajeActual">Puntaje: 0</h3>
+                <div>
+                    <p>Selecciona la dificultad:</p>
+                    <form>
+                        <label class="radio-inline"><input type="radio" id="rboDefecto" value="1" name="radDificultad">F&aacute;cil</label>
+                        <label class="radio-inline"><input type="radio" value="2" name="radDificultad">Normal</label>
+                        <label class="radio-inline"><input type="radio" value="4" name="radDificultad">Intermedio</label>
+                        <label class="radio-inline"><input type="radio" value="5" name="radDificultad">Veterano</label>
+                        <label class="radio-inline"><input type="radio" value="10" name="radDificultad">Kamikaze</label>
+                    </form>                    <hr>
+                </div>  
+                <canvas id="canPrincipal" width="400" height="400" class="center-block"></canvas>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modPuntajes">Ver puntajes</button>
+                <p><a id="btnAbandonar" class="btn btn-primary btn-lg" href="#" role="button">Abandonar</a></p>
+            </div>
+        <div>
+        <div class="modal fade" tabindex="1" role="dialog" id="modNuevoJuego" aria-labelledby="modNuevoJuegoLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ingres&aacute; tu nombre y selecciona tu personaje:</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="txtNombreJugador">Nombre:</label>
+                                <input type="text" class="form-control" id="txtNombreJugador" placeholder="Ej. Pepe">
+                            </div>
+                        </form>
+                        <fieldset>
+                            <center>
+                                <legend>Personaje: </legend>
+                                <input type="radio" name="radSkin" id="radIronMan">
+                                <label for="radIronMan"><img src="http://images.clipartpanda.com/iron-man-clip-art-66a31983600cdf5414b0cdae31a6d289.png" title="Iron Man" alt="Iron Man" width="80px" height="80px"></label>
+                                
+                                <input type="radio" name="radSkin" id="radHulk">
+                                <label for="radHulk"><img src="http://marveltoynews.com/wp-content/uploads/2013/06/Avengers-Hot-Toys-Hulk-Head-Sculpt-Close-Up-e1372255334628.jpg" title="Hulk" alt="Hulk" width="80px" height="80px"></label>
+                                
+                                <input type="radio" name="radSkin" id="radCaptain">
+                                <label for="radCaptain"><img src="https://img.utdstc.com/icons/256/captain-america-tws-android.png" title="Capitan america" alt="Capitan america" width="80px" height="80px"></label>
+                            </center>
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnComenzar">Jugar</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div class="modal fade" tabindex="1" role="dialog" id="modPuntajes" aria-labelledby="modPuntajesLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Puntajes:</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="divResultados" class="center-block">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <th>Jugador</th>
+                                    <th>Puntaje</th>
+                                </thead>
+                                <tbody id="tblResultados">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->             
+    </body>
+</html>
