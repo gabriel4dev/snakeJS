@@ -39,9 +39,18 @@ window.onload=function(){
     inicializarJuego();
 
     $('#modNuevoJuego').on('hidden.bs.modal', function (e) {
-    if(!vJugando){
-        game();
-    }
+        if(!vJugando){
+            game();
+        }
+    });
+
+    $("#modGameOver").on('hidden.bs.modal', function (e) {
+        vVelocidadX = 0;
+        vVelocidadY = 0;
+        vSnake = [];
+        vPlayerX = 10;
+        vPlayerY = 10;
+        inicializarJuego();
     });
 }
 
@@ -170,14 +179,17 @@ function gameOver(){
     vMovimiento = false;
     vJugando = false;
     var vPartida = {puntaje: puntaje, jugador: jugador};
+    //alert("Game over: Puntaje: " + vPartida.puntaje);
+    var msj = "";
+    if(vPartida.puntaje > obtenerMayorPuntaje()){
+      msj = "<h3>Felicitaciones, nuevo record!!!</h3><h4>Puntaje: <strong>" + vPartida.puntaje + "</strong></h4>"
+    }
+    else{
+        msj = "<h4>Puntaje: <strong>" + vPartida.puntaje + "</strong></h4>";
+    }
     actualizarDatos(vPartida);
-    alert("Game over: Puntaje: " + vPartida.puntaje);
-    vVelocidadX = 0;
-    vVelocidadY = 0;
-    vSnake = [];
-    vPlayerX = 10;
-    vPlayerY = 10;
-    inicializarJuego();
+    $("#divGameOver").html(msj);
+    $("#modGameOver").modal('show');
 }
 
 function actualizarDatos(pPartida){
@@ -194,6 +206,16 @@ function actualizarDatos(pPartida){
         vContador ++;
     }
     $("#tblResultados").html(tabla);
+}
+
+function obtenerMayorPuntaje(){
+    var vResultado = 0;
+    for(var i = 0; i < partidas.length; i++){
+        if(vResultado < partidas[i].puntaje){
+            vResultado = partidas[i].puntaje;
+        }
+    }
+    return vResultado;
 }
 
 function inicializarJuego(){

@@ -27,7 +27,9 @@
                 </div>  
                 <canvas id="canPrincipal" width="400" height="400" class="center-block"></canvas>
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modPuntajes">Ver puntajes</button>
-                <p><a id="btnAbandonar" class="btn btn-primary btn-lg" href="#" role="button">Abandonar</a></p>
+                <div class="">
+                    <p><a id="btnAbandonar" class="btn btn-primary btn-lg" href="#" role="button">Abandonar</a></p>
+                </div>
             </div>
         <div>
         <div class="modal fade" tabindex="1" role="dialog" id="modNuevoJuego" aria-labelledby="modNuevoJuegoLabel">
@@ -63,6 +65,7 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        
         <div class="modal fade" tabindex="1" role="dialog" id="modPuntajes" aria-labelledby="modPuntajesLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -84,6 +87,26 @@
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->             
+        </div><!-- /.modal -->  
+
+        <div class="modal fade" tabindex="1" role="dialog" id="modGameOver" aria-labelledby="modGameOverLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Game over:</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Juego terminado:</h3>
+                        <hr>
+                        <div id="divGameOver"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal --> 
+
     </body>
 </html>
