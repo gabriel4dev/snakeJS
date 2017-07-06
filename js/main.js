@@ -28,6 +28,9 @@ window.onload=function(){
     vCanvas = document.getElementById("canPrincipal");
     vContexto = vCanvas.getContext("2d");
     document.addEventListener("keydown",document_keydown);
+
+    $("#divMsjError").hide();
+
     $("#btnAbandonar").click(function(){
         gameOver();
     });
@@ -52,10 +55,12 @@ window.onload=function(){
         vPlayerY = 10;
         inicializarJuego();
     });
+
 }
 
 function nuevoJuego(){
     jugador = undefined;
+    $("#divMsjError").hide();
     if($("#txtNombreJugador").val() != ""){
         var valido = true;
         if($("#radIronMan").is(":checked")){
@@ -77,9 +82,9 @@ function nuevoJuego(){
             colorPiso = "#8A0808";
         }
         else{
-            alert("Selecciona un skin para tu snake.");
+            $("#divMsjError").html("<p><strong>Atenci&oacute;n!</strong> Debes seleccionar un skin para tu personaje...");
+            $("#divMsjError").show();
             valido = false;
-            game();
         }
         if(valido){
             jugador = $("#txtNombreJugador").val();
@@ -91,9 +96,8 @@ function nuevoJuego(){
         }
     }
     else{
-        alert("Debe ingresar el nombre");
-        game();
-
+        $("#divMsjError").html("<p><strong>Atenci&oacute;n!</strong> Debes ingresar un nombre.");
+        $("#divMsjError").show();
     }
 }
 

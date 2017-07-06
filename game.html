@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="js/main.js"></script>
-
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
     </head>
     <body>
         <div class="container">
@@ -27,7 +27,7 @@
                 </div>  
                 <canvas id="canPrincipal" width="400" height="400" class="center-block"></canvas>
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modPuntajes">Ver puntajes</button>
-                <div class="">
+                <div class="pull-right">
                     <p><a id="btnAbandonar" class="btn btn-primary btn-lg" href="#" role="button">Abandonar</a></p>
                 </div>
             </div>
@@ -44,13 +44,13 @@
                                 <label for="txtNombreJugador">Nombre:</label>
                                 <input type="text" class="form-control" id="txtNombreJugador" placeholder="Ej. Pepe">
                             </div>
+                            <div class="alert alert-danger" role="alert" id="divMsjError"></div>
                         </form>
                         <fieldset>
                             <center>
                                 <legend>Personaje: </legend>
                                 <input type="radio" name="radSkin" id="radIronMan">
                                 <label for="radIronMan"><img src="http://images.clipartpanda.com/iron-man-clip-art-66a31983600cdf5414b0cdae31a6d289.png" title="Iron Man" alt="Iron Man" width="80px" height="80px"></label>
-                                
                                 <input type="radio" name="radSkin" id="radHulk">
                                 <label for="radHulk"><img src="http://marveltoynews.com/wp-content/uploads/2013/06/Avengers-Hot-Toys-Hulk-Head-Sculpt-Close-Up-e1372255334628.jpg" title="Hulk" alt="Hulk" width="80px" height="80px"></label>
                                 
@@ -71,7 +71,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Puntajes:</h4>
+                        <h4 class="modal-title">&Uacute;ltimos 10 Puntajes:</h4>
                     </div>
                     <div class="modal-body">
                         <div id="divResultados" class="center-block">
@@ -97,8 +97,6 @@
                         <h4 class="modal-title">Game over:</h4>
                     </div>
                     <div class="modal-body">
-                        <h3>Juego terminado:</h3>
-                        <hr>
                         <div id="divGameOver"></div>
                     </div>
                     <div class="modal-footer">
